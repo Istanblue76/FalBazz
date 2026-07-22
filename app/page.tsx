@@ -163,8 +163,9 @@ export default function Home() {
 
       const data = await response.json();
       return data.text;
-    } catch (error) {
+    } catch (error: any) {
       console.warn("Gemini API error, running local fallback:", error);
+      alert("Hata Detayı: " + error.message);
       
       // Dynamic robust local fallback in case of key limits
       let fallbackText = "";
