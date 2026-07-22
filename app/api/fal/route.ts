@@ -37,7 +37,7 @@ Görseller geçerliyse (yani en az bir tanesinde kahve fincanı içi veya tabağ
 
 Görsellerdeki telvelerin şekillerini, tortu birikimlerini, yolları ve sembolleri detaylıca analiz et.
 Seçilen konsepte uygun olarak (Geleneksel ise genel hane/gelecek, Aşk ise ilişki/kalp kabarmaları, Finans ise kariyer/bereket) son derece samimi, akıcı, mistik ve heyecan verici bir dille yorum yaz.
-Yorumun en az 3 uzun paragraftan oluşsun. Başında fal sahibine ismiyle hitap et. Bölümleri net bir şekilde ayır ve başlıklar ekle (örn: Hane Durumu, Yolunuz ve Kısmetleriniz vb.). Geleceğe yönelik somut semboller ve öngörüler (üç vakte kadar vb.) paylaş. Türkçe dilinde yaz.`;
+Yorumun 3 orta uzunlukta paragraftan oluşsun. Başında fal sahibine ismiyle hitap et. Bölümleri net bir şekilde ayır ve başlıklar ekle (örn: Hane Durumu, Yolunuz ve Kısmetleriniz vb.). Geleceğe yönelik somut semboller ve öngörüler (üç vakte kadar vb.) paylaş. Türkçe dilinde yaz. Gereksiz uzatmalardan kaçın.`;
 
     parts.push({ text: promptText });
 
@@ -78,7 +78,11 @@ Yorumun en az 3 uzun paragraftan oluşsun. Başında fal sahibine ismiyle hitap 
           {
             parts: parts
           }
-        ]
+        ],
+        generationConfig: {
+          maxOutputTokens: 500,
+          temperature: 1.0
+        }
       })
     });
 
