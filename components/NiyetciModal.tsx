@@ -210,7 +210,7 @@ export default function NiyetciModal({ isOpen, onClose }: NiyetciModalProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <div className="absolute inset-0 bg-cover bg-center opacity-40 pointer-events-none" style={{ backgroundImage: "url('/assets/mystical_cosmos.png')" }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-40 pointer-events-none bg-mystical-cosmos" />
         
         <motion.div 
           className="relative w-full max-w-md bg-gradient-to-b from-[#0F021C] to-[#05010B] rounded-2xl shadow-2xl border border-[#B19FFB]/20 overflow-hidden h-[85vh] flex flex-col"

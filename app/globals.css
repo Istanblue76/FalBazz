@@ -116,3 +116,17 @@ html {
 .animate-fade-in-up {
   animation: fadeInUp 1s ease-out forwards;
 }
+
+/* Custom Background Images to prevent Turbopack/Tailwind inline style parsing bugs */
+.bg-mystical-cosmos {
+  background-image: url(/assets/mystical_cosmos.png);
+}
+
+.bg-upload-bg {
+  background-image: url(/assets/upload_bg.jpg);
+}
+
+.bg-ritual-history {
+  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuA8Sfm8j9sgAvCmvlkSkVAid0n2FiLCQAn7Nokp4BFD0YEfKSvFdr00xsdUJvh3JpiSFTIz_GgswFzOVVCqZYRklx_lzvTXsjhYDFbmmbayaBNCmwNqb8jRdZN_bAr3foeijKgGc0rl0eN9TxTMPvbGOGEWgwlBlsGCZe3mnKW-LYEsNEUnWy9ZmOS6MYZD10vnxaoQRjZ-uOsAWbWNxnnN8jGChP5DEwsdQG0KA5UQ7Q--ZiTo48YgfGLyWvOi0dowHkMpo4emnWs);
+}
+

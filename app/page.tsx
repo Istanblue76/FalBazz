@@ -349,8 +349,7 @@ export default function Home() {
                 style={{ animationDuration: '3s' }}
               >
                 <div 
-                  className="w-[240px] h-[240px] rounded-full overflow-hidden relative shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] flex flex-col items-center justify-center group/circle bg-cover bg-center"
-                  style={{ backgroundImage: "url('/assets/upload_bg.jpg')" }}
+                  className="w-[240px] h-[240px] rounded-full overflow-hidden relative shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] flex flex-col items-center justify-center group/circle bg-cover bg-center bg-upload-bg"
                 >
                   {/* Dark overlay to make text/icon readable */}
                   <div className="absolute inset-0 bg-black/60 group-hover/circle:bg-black/40 transition-colors duration-300 z-0" />
@@ -370,8 +369,7 @@ export default function Home() {
           {/* History Snippet (Large Card) */}
           <div id="tarihce" className="md:col-span-7 relative bg-surface-container-high rounded-xl overflow-hidden border border-white/5 group min-h-[400px] flex items-end">
             <div 
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-40 mix-blend-luminosity" 
-              style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA8Sfm8j9sgAvCmvlkSkVAid0n2FiLCQAn7Nokp4BFD0YEfKSvFdr00xsdUJvh3JpiSFTIz_GgswFzOVVCqZYRklx_lzvTXsjhYDFbmmbayaBNCmwNqb8jRdZN_bAr3foeijKgGc0rl0eN9TxTMPvbGOGEWgwlBlsGCZe3mnKW-LYEsNEUnWy9ZmOS6MYZD10vnxaoQRjZ-uOsAWbWNxnnN8jGChP5DEwsdQG0KA5UQ7Q--ZiTo48YgfGLyWvOi0dowHkMpo4emnWs')" }}
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-40 mix-blend-luminosity bg-ritual-history" 
             ></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#131408] via-[#131408]/80 to-transparent"></div>
             <div className="relative z-10 p-8 w-full">
@@ -623,7 +621,7 @@ export default function Home() {
             onClick={() => setNiyetOpen(true)}
             className="group w-full py-12 flex flex-col md:flex-row items-center justify-between px-6 md:px-12 hover:bg-[#1C132E]/40 transition-all duration-500 relative overflow-hidden rounded-xl border border-transparent hover:border-[#B19FFB]/35 cursor-pointer shadow-[0_0_20px_rgba(177,159,251,0.05)] text-left"
           >
-            <div className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-1000" style={{ backgroundImage: "url('/assets/mystical_cosmos.png')" }} />
+            <div className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-1000 bg-mystical-cosmos" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#B19FFB]/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
             
             <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2 z-10">
@@ -648,7 +646,7 @@ export default function Home() {
             onClick={() => setNiyetGonderOpen(true)}
             className="group w-full py-12 flex flex-col md:flex-row items-center justify-between px-6 md:px-12 hover:bg-[#201D13]/40 transition-all duration-500 relative overflow-hidden rounded-xl border border-transparent hover:border-[#E6C475]/35 cursor-pointer shadow-[0_0_20px_rgba(230,196,117,0.05)] text-left"
           >
-            <div className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-1000" style={{ backgroundImage: "url('/assets/mystical_cosmos.png')" }} />
+            <div className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-1000 bg-mystical-cosmos" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E6C475]/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
             
             <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2 z-10">
