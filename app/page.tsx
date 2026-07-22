@@ -90,84 +90,36 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentIndex])  // Call Google Gemini API to analyze coffee grounds images and generate interpretation
   // Call Google Gemini API to analyze coffee grounds images and generate interpretation
+  // Call server-side API to analyze coffee grounds images and generate interpretation
   const generateFortune = async () => {
-    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-
-    const parts: any[] = [];
-
-    const promptText = `Sen 'FalBaz' adında mistik, bilge, son derece hisli ve uzman bir Türk Kahvesi Falı yorumcususun.
-
-ÇÖNEMLİ KURAL (GÖRSEL İÇERİK KONTROLÜ):
-Sana gönderilen fotoğrafları büyük bir hassasiyetle incele. Eğer gönderilen fotoğraflar bir Türk Kahvesi fincanının içi (kahve telvesi) veya kahve fincanı tabağı DEĞİLSE (örneğin insan yüzü/vücudu, kedi/köpek gibi hayvanlar, manzara, rastgele nesneler, yazılar, ekran görüntüleri veya dokümanlar ise), kesinlikle fal yorumlama ve sadece 'HATA: GECERSIZ_GORSEL' metnini döndür. Metne başka hiçbir kelime veya açıklama ekleme, sadece bu hata kodunu yazdır.
-
-Görseller geçerliyse (yani en az bir tanesinde kahve fincanı içi veya tabağı görünüyorsa), fal baktıran kişinin bilgileri şunlardır:
-- Adı: ${name}
-- Doğum Tarihi: ${birthdate}
-- Cinsiyet: ${gender}
-- İlişki Durumu: ${relStatus}
-- Fal Niyeti/Sorusunun: ${wish || "Genel Hayat ve Kısmetler"}
-- Seçilen Fal Konsepti: ${activeProduct.name}
-
-Görsellerdeki telvelerin şekillerini, tortu birikimlerini, yolları ve sembolleri detaylıca analiz et.
-Seçilen konsepte uygun olarak (Geleneksel ise genel hane/gelecek, Aşk ise ilişki/kalp kabarmaları, Finans ise kariyer/bereket) son derece samimi, akıcı, mistik ve heyecan verici bir dille yorum yaz.
-Yorumun en az 3 uzun paragraftan oluşsun. Başında fal sahibine ismiyle hitap et. Bölümleri net bir şekilde ayır ve başlıklar ekle (örn: Hane Durumu, Yolunuz ve Kısmetleriniz vb.). Geleceğe yönelik somut semboller ve öngörüler (üç vakte kadar vb.) paylaş. Türkçe dilinde yaz.`;
-
-    parts.push({ text: promptText });
-
-    if (imgInside1) {
-      parts.push({
-        inlineData: {
-          mimeType: "image/jpeg",
-          data: imgInside1
-        }
-      });
-    }
-    if (imgInside2) {
-      parts.push({
-        inlineData: {
-          mimeType: "image/jpeg",
-          data: imgInside2
-        }
-      });
-    }
-    if (imgPlate) {
-      parts.push({
-        inlineData: {
-          mimeType: "image/jpeg",
-          data: imgPlate
-        }
-      });
-    }
-
     try {
-      const response = await fetch(url, {
+      const response = await fetch("/api/fal", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          contents: [
-            {
-              parts: parts
-            }
-          ]
+          name,
+          birthdate,
+          gender,
+          relStatus,
+          wish,
+          concept: activeProduct.name,
+          imgInside1,
+          imgInside2,
+          imgPlate
         })
       });
 
       if (!response.ok) {
-        throw new Error("Gemini API call failed");
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || "Gemini API call failed");
       }
 
       const data = await response.json();
-      const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-      if (generatedText) {
-        return generatedText;
-      } else {
-        throw new Error("No text returned from Gemini");
-      }
+      return data.text;
     } catch (error) {
-      console.error("Gemini API error:", error);
+      console.warn("Gemini API error, running local fallback:", error);
       
       // Dynamic robust local fallback in case of key limits
       let fallbackText = "";
@@ -625,7 +577,7 @@ Yorumun en az 3 uzun paragraftan oluşsun. Başında fal sahibine ismiyle hitap 
             onClick={() => setNiyetOpen(true)}
             className="group w-full py-12 flex flex-col md:flex-row items-center justify-between px-6 md:px-12 hover:bg-[#1C132E]/40 transition-all duration-500 relative overflow-hidden rounded-xl border border-transparent hover:border-[#B19FFB]/35 cursor-pointer shadow-[0_0_20px_rgba(177,159,251,0.05)] text-left"
           >
-            <div className="absolute inset-0 bg-[url('/assets/mystical_cosmos.png')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-1000" />
+            <div className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-1000" style={{ backgroundImage: "url('/assets/mystical_cosmos.png')" }} />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#B19FFB]/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
             
             <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2 z-10">
@@ -650,7 +602,7 @@ Yorumun en az 3 uzun paragraftan oluşsun. Başında fal sahibine ismiyle hitap 
             onClick={() => setNiyetGonderOpen(true)}
             className="group w-full py-12 flex flex-col md:flex-row items-center justify-between px-6 md:px-12 hover:bg-[#201D13]/40 transition-all duration-500 relative overflow-hidden rounded-xl border border-transparent hover:border-[#E6C475]/35 cursor-pointer shadow-[0_0_20px_rgba(230,196,117,0.05)] text-left"
           >
-            <div className="absolute inset-0 bg-[url('/assets/mystical_cosmos.png')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-1000" />
+            <div className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-1000" style={{ backgroundImage: "url('/assets/mystical_cosmos.png')" }} />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E6C475]/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
             
             <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2 z-10">
