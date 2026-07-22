@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
-    const API_KEY = process.env.GEMINI_API_KEY;
-    if (!API_KEY) throw new Error('API key not configured');
+    const API_KEY = process.env.GEMINI_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+    if (!API_KEY) throw new Error('API key not configured (checked GEMINI_API_KEY and NEXT_PUBLIC_GEMINI_API_KEY)');
     
     const body = await req.json();
     const { category, intention, age, cardName, marital, gender, ritualType } = body;
