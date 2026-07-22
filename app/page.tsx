@@ -9,6 +9,51 @@ import ProductBottleScroll from "@/components/ProductBottleScroll";
 import NiyetciModal from "@/components/NiyetciModal";
 import NiyetGonderModal from "@/components/NiyetGonderModal";
 
+const compressImage = (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new Image();
+      img.src = event.target?.result as string;
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const MAX_WIDTH = 800;
+        const MAX_HEIGHT = 800;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+          reject(new Error("Canvas context is not supported"));
+          return;
+        }
+
+        ctx.drawImage(img, 0, 0, width, height);
+        const dataUrl = canvas.toDataURL("image/jpeg", 0.75);
+        const base64 = dataUrl.split(",")[1];
+        resolve(base64);
+      };
+      img.onerror = (err) => reject(err);
+    };
+    reader.onerror = (err) => reject(err);
+  });
+};
+
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const activeProduct = products[currentIndex];
@@ -771,15 +816,21 @@ export default function Home() {
                               type="file"
                               accept="image/*"
                               className="hidden"
-                              onChange={(e) => {
+                              onChange={async (e) => {
                                 const file = e.target.files?.[0];
                                 if (file) {
-                                  const reader = new FileReader();
-                                  reader.onloadend = () => {
-                                    const base64String = (reader.result as string).split(",")[1];
+                                  try {
+                                    const base64String = await compressImage(file);
                                     item.setter(base64String);
-                                  };
-                                  reader.readAsDataURL(file);
+                                  } catch (err) {
+                                    console.error("Görsel sıkıştırma hatası:", err);
+                                    const reader = new FileReader();
+                                    reader.onloadend = () => {
+                                      const fallbackBase64 = (reader.result as string).split(",")[1];
+                                      item.setter(fallbackBase64);
+                                    };
+                                    reader.readAsDataURL(file);
+                                  }
                                 }
                               }}
                             />
