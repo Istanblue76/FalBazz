@@ -1,5 +1,5 @@
 "use client";
-
+// Forced redeployment trigger for environment variables
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { products } from "@/data/products";
