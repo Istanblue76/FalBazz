@@ -1,5 +1,5 @@
 "use client";
-// Forced redeployment trigger for environment variables
+// Forced redeployment trigger with GEMINI_API_KEY environment variable
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { products } from "@/data/products";
