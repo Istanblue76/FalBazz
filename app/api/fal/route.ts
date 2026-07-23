@@ -66,7 +66,7 @@ Yorumun 3 orta uzunlukta paragraftan oluşsun. Başında fal sahibine ismiyle hi
       });
     }
 
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${API_KEY}`;
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=${API_KEY}`;
 
     const response = await fetch(geminiUrl, {
       method: "POST",
@@ -92,7 +92,8 @@ Yorumun 3 orta uzunlukta paragraftan oluşsun. Başında fal sahibine ismiyle hi
     }
 
     const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const partsArray = data.candidates?.[0]?.content?.parts;
+    const text = partsArray ? partsArray.map((p: any) => p.text).join('') : null;
 
     if (text) {
       return NextResponse.json({ text });
