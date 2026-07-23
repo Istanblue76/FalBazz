@@ -119,7 +119,7 @@ html {
 
 /* Custom Background Images to prevent Turbopack/Tailwind inline style parsing bugs */
 .bg-mystical-cosmos {
-  background-image: url(/assets/mystical_cosmos.png);
+  background-image: url(/assets/mystical_cosmos.webp);
 }
 
 .bg-upload-bg {

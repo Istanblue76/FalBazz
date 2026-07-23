@@ -66,7 +66,7 @@ export default function Navbar() {
           href="#"
         >
           <img 
-            src="/assets/logo.png" 
+            src="/assets/logo.webp" 
             alt="FalBaz Logo" 
             className="h-10 md:h-12 w-auto object-contain"
           />

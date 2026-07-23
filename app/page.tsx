@@ -497,7 +497,7 @@ export default function Home() {
             >
               <div className="relative rounded-2xl overflow-hidden h-48 border border-secondary/20 shadow-lg group mb-8">
                 <img 
-                  src="/assets/ritual_tradition.png" 
+                  src="/assets/ritual_tradition.webp" 
                   alt="Geleneksel Sunum" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -565,7 +565,7 @@ export default function Home() {
 
               <div className="mt-8 pt-6 border-t border-secondary/20 flex flex-col md:flex-row gap-4 items-center justify-between">
                 <img 
-                  src="/assets/ritual_fortune.png" 
+                  src="/assets/ritual_fortune.webp" 
                   alt="Fal Hazırlığı" 
                   className="w-32 h-20 object-cover rounded-lg border border-secondary/30 opacity-80 shadow-md"
                 />
@@ -976,7 +976,7 @@ export default function Home() {
                 </div>
                 <div className="relative h-[220px] md:h-[280px] w-full rounded-xl overflow-hidden border border-secondary/20 shadow-lg group">
                   <img 
-                    src="/assets/history_palace.png" 
+                    src="/assets/history_palace.webp" 
                     alt="Osmanlı Sarayında Kahve" 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -988,7 +988,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div className="relative h-[220px] md:h-[280px] w-full rounded-xl overflow-hidden border border-secondary/20 shadow-lg group md:order-1 order-2">
                   <img 
-                    src="/assets/history_brewing.png" 
+                    src="/assets/history_brewing.webp" 
                     alt="Türk Kahvesi Pişirme Tekniği" 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -1042,7 +1042,7 @@ export default function Home() {
                 </div>
                 <div className="relative h-[220px] md:h-[280px] w-full rounded-xl overflow-hidden border border-secondary/20 shadow-lg group">
                   <img 
-                    src="/assets/history_cafe.png" 
+                    src="/assets/history_cafe.webp" 
                     alt="Tarihi İstanbul Kahvehanesi" 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />

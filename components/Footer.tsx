@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Brand Info */}
         <div className="flex flex-col gap-4 max-w-xs">
           <img 
-            src="/assets/logo.png" 
+            src="/assets/logo.webp" 
             alt="FalBaz Logo" 
             className="h-10 w-auto object-contain self-start"
           />

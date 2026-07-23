@@ -63,8 +63,8 @@ export default function ProductBottleScroll({ product }: ProductBottleScrollProp
 
     for (let i = 1; i <= totalFrames; i++) {
       const img = new Image();
-      // Assets are under /assets/turk-kahvasi_frames/{i}.png
-      img.src = `/assets/turk-kahvasi_frames/${i}.png`;
+      // Assets are under /assets/turk-kahvasi_frames/{i}.webp
+      img.src = `/assets/turk-kahvasi_frames/${i}.webp`;
       img.onload = () => {
         count++;
         setLoadedCount(count);
@@ -178,7 +178,7 @@ export default function ProductBottleScroll({ product }: ProductBottleScrollProp
             </div>
             <div className="flex flex-col items-center text-center gap-3">
               <img 
-                src="/assets/logo.png" 
+                src="/assets/logo.webp" 
                 alt="FalBaz Logo" 
                 className="h-14 w-auto object-contain animate-pulse"
               />
