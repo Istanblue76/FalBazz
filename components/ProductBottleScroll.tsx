@@ -50,7 +50,7 @@ export default function ProductBottleScroll({ product }: ProductBottleScrollProp
     scrollYProgress,
     [0, 0.22, 0.9, 1.0],
     isMobile
-      ? [1.15, 1.35, 1.35, 1.0]
+      ? [1.35, 1.6, 1.6, 1.15]
       : [1.2, 1.3, 1.3, 0.85]
   );
 
@@ -230,7 +230,7 @@ export default function ProductBottleScroll({ product }: ProductBottleScrollProp
           style={{ 
             scale: canvasScale 
           }}
-          className="w-full h-full max-h-[85vh] max-w-[85vw] md:max-h-[90vh] md:max-w-[45vw] object-contain pointer-events-none z-10"
+          className="w-full h-full max-h-[65vh] max-w-[100vw] md:max-h-[90vh] md:max-w-[45vw] object-contain pointer-events-none z-10"
         />
 
         {/* Text Overlays linked to scroll */}

@@ -50,10 +50,9 @@ export default function ProductTextOverlays({
         </span>
       </motion.div>
  
-      {/* Section 2: Telve Description */}
       <motion.div
         style={{ opacity: opacity2, y: y2 }}
-        className="absolute inset-0 flex flex-col items-start justify-center px-6 md:px-[120px] h-screen max-w-2xl text-left"
+        className="absolute inset-0 flex flex-col items-start justify-end pb-[14vh] md:justify-center md:pb-0 px-6 md:px-[120px] h-screen max-w-2xl text-left"
       >
         <div className="bg-[#131408]/65 backdrop-blur-md border border-secondary/15 rounded-2xl p-6 md:p-8 shadow-xl pointer-events-auto">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 border border-secondary/30 rounded-full bg-surface-container/50 mb-4">
@@ -71,10 +70,9 @@ export default function ProductTextOverlays({
         </div>
       </motion.div>
  
-      {/* Section 3: Gelecek & Kısmet */}
       <motion.div
         style={{ opacity: opacity3, y: y3 }}
-        className="absolute inset-0 flex flex-col items-end justify-center px-6 md:px-[120px] h-screen w-full text-right ml-auto max-w-7xl"
+        className="absolute inset-0 flex flex-col items-end justify-start pt-[12vh] md:justify-center md:pt-0 px-6 md:px-[120px] h-screen w-full text-right ml-auto max-w-7xl"
       >
         <div className="max-w-xl bg-[#131408]/65 backdrop-blur-md border border-secondary/15 rounded-2xl p-6 md:p-8 shadow-xl flex flex-col items-end pointer-events-auto">
           <div className="flex items-center gap-1.5 px-3.5 py-1.5 border border-secondary/30 rounded-full bg-surface-container/50 mb-4">
@@ -92,10 +90,9 @@ export default function ProductTextOverlays({
         </div>
       </motion.div>
  
-      {/* Section 4: Gerçek Hissiyat */}
       <motion.div
         style={{ opacity: opacity4, y: y4 }}
-        className="absolute inset-0 flex flex-col items-start justify-center px-6 md:px-[120px] h-screen max-w-2xl text-left"
+        className="absolute inset-0 flex flex-col items-start justify-end pb-[14vh] md:justify-center md:pb-0 px-6 md:px-[120px] h-screen max-w-2xl text-left"
       >
         <div className="bg-[#131408]/65 backdrop-blur-md border border-secondary/20 rounded-2xl p-6 md:p-8 shadow-xl pointer-events-auto">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 border border-secondary/30 rounded-full bg-surface-container/50 mb-4 self-start">
